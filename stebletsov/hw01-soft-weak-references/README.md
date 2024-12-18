@@ -14,29 +14,42 @@ mvn exec:java
 ```console
 [INFO] --- exec:3.1.0:java (default-cli) @ hw01-soft-weak-references ---
 Enter command: 
-1. Set cache directory
-2. Load file into cache
-3. Get file content
-4. Exit
+1. Set reference type (soft/weak)
+2. Set cache directory
+3. Load file into cache
+4. Get file content
+5. Exit
 1
+Enter reference type (soft/weak):
+soft
+Reference type set to: soft
+Enter command: 
+1. Set reference type (soft/weak)
+2. Set cache directory
+3. Load file into cache
+4. Get file content
+5. Exit
+2
 Enter directory:
 C:\Users\stebl\IdeaProjects\Java-Advanced-11-homework\stebletsov\hw01-soft-weak-references\src\main\resources
 Cache directory set to: C:\Users\stebl\IdeaProjects\Java-Advanced-11-homework\stebletsov\hw01-soft-weak-references\src\main\resources
 Enter command: 
-1. Set cache directory
-2. Load file into cache
-3. Get file content
-4. Exit
-2
+1. Set reference type (soft/weak)
+2. Set cache directory
+3. Load file into cache
+4. Get file content
+5. Exit
+3
 Enter file name:
 Names.txt
 File loaded into cache: Names.txt
 Enter command: 
-1. Set cache directory
-2. Load file into cache
-3. Get file content
-4. Exit
-3
+1. Set reference type (soft/weak)
+2. Set cache directory
+3. Load file into cache
+4. Get file content
+5. Exit
+4
 Enter file name:
 Names.txt
 Content of Names.txt:
@@ -57,11 +70,12 @@ Shaddam Corrino
 Twilight Paul
 
 Enter command: 
-1. Set cache directory
-2. Load file into cache
-3. Get file content
-4. Exit
-4
+1. Set reference type (soft/weak)
+2. Set cache directory
+3. Load file into cache
+4. Get file content
+5. Exit
+5
 ```
 
 ## Цель:

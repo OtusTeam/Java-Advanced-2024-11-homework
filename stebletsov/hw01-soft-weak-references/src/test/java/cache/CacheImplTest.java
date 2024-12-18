@@ -25,6 +25,24 @@ public class CacheImplTest {
     }
 
     @Test
+    void shouldSetSoftReference() {
+        fileCache.setReferenceType("soft");
+    }
+
+    @Test
+    void shouldSetWeakReference() {
+        fileCache.setReferenceType("weak");
+    }
+
+    @Test
+    void shouldThrowAnErrorForInvalidReferenceType() {
+        var exception =
+                assertThrows(RuntimeException.class,
+                        () -> fileCache.setReferenceType("invalid_type"));
+        assertEquals("Reference type must be 'soft' or 'weak'", exception.getMessage());
+    }
+
+    @Test
     void shouldSetCorrectDirectory() {
         fileCache.setCacheDirectory(testDirectory.toString());
     }
