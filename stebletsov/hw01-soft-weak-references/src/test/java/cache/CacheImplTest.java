@@ -24,7 +24,6 @@ public class CacheImplTest {
 
     }
 
-
     @Test
     void shouldSetCorrectDirectory() {
         fileCache.setCacheDirectory(testDirectory.toString());
