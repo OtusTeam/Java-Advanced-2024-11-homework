@@ -1,0 +1,1 @@
+-XX:+UseSerialGC -XX:SurvivorRatio=1 -XX:NewRatio=1 -Xms128m -Xmx128m -Xlog:gc*::time
