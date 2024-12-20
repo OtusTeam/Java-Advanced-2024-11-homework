@@ -58,6 +58,13 @@ public class Emulator {
 
     public void getFileFromCache(String fileName) {
         String content = cache.get(fileName);
+
+        if (content == null) {
+            System.out.println("File not found in cache. Attempting to load from directory...");
+            loadFileIntoCache(fileName);
+            content = cache.get(fileName);
+        }
+
         if (content != null) {
             System.out.println("File content:");
             System.out.println(content);
