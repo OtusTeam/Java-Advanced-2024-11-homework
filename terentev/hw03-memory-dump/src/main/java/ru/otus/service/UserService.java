@@ -4,17 +4,23 @@ import org.springframework.stereotype.Service;
 import ru.otus.entity.User;
 import ru.otus.repository.UserRepository;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final Map<String, byte[]> userCache = new HashMap<>();
+    private final Map<String, byte[]> userCache;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+        this.userCache = new LinkedHashMap<>(50, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<String, byte[]> eldest) {
+                return this.size() > 50;
+            }
+        };
     }
 
     public void registerUser(String login, String password) {

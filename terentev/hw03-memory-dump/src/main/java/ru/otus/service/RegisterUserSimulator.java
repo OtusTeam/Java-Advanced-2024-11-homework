@@ -1,11 +1,9 @@
 package ru.otus.service;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Slf4j
 @Component
 public class RegisterUserSimulator {
 
@@ -27,9 +25,9 @@ public class RegisterUserSimulator {
                     null,
                     String.class
             );
-            log.info("Simulated registration for: {}", login);
+            System.out.println("Simulated registration for: " + login);
         } catch (Exception e) {
-            log.error("Error during simulation: {}", e.getMessage());
+            System.err.println("Error during simulation: " + e.getMessage());
         }
     }
 }
