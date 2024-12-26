@@ -1,0 +1,9 @@
+-------------------------------------------------
+Name      Favorite Food
+-------------------------------------------------
+Whiskers  fish heads
+Mittens   deluxe food
+Purrfect  chicken hearts
+Cuddles   tuna
+Socks     salmon
+-------------------------------------------------

@@ -1,0 +1,9 @@
+-------------------------------------------------
+Name      Age  Owner
+-------------------------------------------------
+Whiskers  3 y.o.  The friendly baker
+Mittens   2 y.o.  The tech-savvy student
+Purrfect  5 y.o.  The eccentric artist
+Cuddles   1 y.o.  The cheerful nurse
+Socks     4 y.o.  The adventurous traveler
+-------------------------------------------------
