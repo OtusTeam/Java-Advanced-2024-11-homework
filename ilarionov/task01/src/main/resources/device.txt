@@ -1,0 +1,4 @@
+PC
+Console
+Notebook
+Phone
