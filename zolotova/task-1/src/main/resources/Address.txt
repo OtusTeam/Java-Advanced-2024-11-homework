@@ -1,0 +1,9 @@
+-------------------------------------------------
+Name      Address
+-------------------------------------------------
+Whiskers  The cozy armchair
+Mittens   The sunny windowsill
+Purrfect  The favorite scratching post
+Cuddles   The soft blanket on the bed
+Socks     The cardboard box in the closet
+-------------------------------------------------
