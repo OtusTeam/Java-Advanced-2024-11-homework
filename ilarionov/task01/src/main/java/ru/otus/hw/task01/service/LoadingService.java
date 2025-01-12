@@ -24,11 +24,11 @@ public class LoadingService {
     private final ContextDao contextDao;
 
     public String load(String fileName, String type) {
-        var currentState = applicationCache.get(fileName);
-        if (currentState != null) {
-            log.info("Loaded from cache");
-            saveInCache(type, fileName, currentState);
-            return String.join("\n", currentState);
+        var cachedContent = applicationCache.getCacheForFileByName(fileName);
+        if (cachedContent != null) {
+            log.info("File {} loaded from cache", fileName);
+            saveInCache(type, fileName, cachedContent);
+            return String.join("\n", cachedContent);
         }
         log.info("Cache is empty, loading from filesystem");
         var filePath = contextDao.getCatalog().resolve(fileName);

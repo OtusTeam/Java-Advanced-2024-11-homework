@@ -16,7 +16,7 @@ public class ApplicationCache {
         CACHE.put(fileName, text);
     }
 
-    public List<String> get(String fileName) {
+    public List<String> getCacheForFileByName(String fileName) {
         if (CACHE.containsKey(fileName)) {
             return CACHE.get(fileName).get();
         }
