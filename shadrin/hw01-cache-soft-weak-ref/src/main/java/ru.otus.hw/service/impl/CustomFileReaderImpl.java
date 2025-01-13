@@ -23,11 +23,8 @@ public class CustomFileReaderImpl implements CustomFileReader {
         FileContent content = cache.getContent(file);
         if (content == null) {
             content  = readContentFromFile(file);
+            cache.addContent(file, content);
         }
-        if (content == null) {
-            return null;
-        }
-        cache.addContent(file, content);
         return content;
     }
 
