@@ -40,6 +40,7 @@ public class UserService {
         } else {
             Optional<User> byLogin = userRepository.findByLogin(login);
             if (byLogin.isPresent()) {
+                map.put(login, new SoftReference<>(new byte[1000000]));
                 userExist(runId, login);
             }
         }
