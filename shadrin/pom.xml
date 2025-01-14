@@ -9,6 +9,7 @@
     <version>1.0</version>
     <modules>
         <module>hw01-cache-soft-weak-ref</module>
+        <module>hw02-optimization-serial-gc</module>
     </modules>
 
     <packaging>pom</packaging>
