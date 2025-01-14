@@ -18,5 +18,14 @@
 Во время работы приложения не запускается полная сборка
 По выполнению ДЗ укажите какие параметры VM выставили
 
-### Примечание по реализации:
-1. 
+### Реализация:
+1. Запуск приложения с дефолтными настройками: -XX:+UseSerialGC -Xms128m -Xmx128m -Xlog:gc*::time
+    #### Результат: GC с полной сборкой запускался 28 раз
+    ![img_1.png](img_1.png)
+    ![img_2.png](img_2.png)
+2. Запуск приложения с настройками -XX:SurvivorRatio=1 и -XX:NewRatio=1: -XX:+UseSerialGC -Xms128m -Xmx128m -Xlog:gc*::time -XX:SurvivorRatio=1 -XX:NewRatio=1
+   #### Результат: Запуска GC с полной сборкой не было
+   ![img_3.png](img_3.png)
+   ![img_4.png](img_4.png)
+
+### Ответ: -XX:+UseSerialGC -Xms128m -Xmx128m -Xlog:gc*::time -XX:SurvivorRatio=1 -XX:NewRatio=1
