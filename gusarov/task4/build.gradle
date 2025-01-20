@@ -1,0 +1,53 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.6'
+	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.graalvm.buildtools.native' version '0.10.3'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	mapstructVersion = "1.5.2.Final"
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.3.6'
+	implementation 'org.springframework.boot:spring-boot-starter-web:3.3.6'
+	implementation 'org.springframework.boot:spring-boot-starter-test:3.3.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.6'
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	// https://mvnrepository.com/artifact/org.mapstruct/mapstruct
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+	// https://mvnrepository.com/artifact/com.networknt/json-schema-validator
+	implementation 'com.networknt:json-schema-validator:1.0.87'
+	compileOnly 'org.projectlombok:lombok:1.18.36'
+	runtimeOnly 'com.h2database:h2:2.2.224'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
