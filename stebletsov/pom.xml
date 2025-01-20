@@ -11,6 +11,7 @@
         <module>hw01-soft-weak-references</module>
         <module>hw02-gc-tuning</module>
         <module>hw03-memory-dump</module>
+        <module>hw04-graalvm</module>
     </modules>
 
     <packaging>pom</packaging>
