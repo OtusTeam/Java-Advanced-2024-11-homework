@@ -1,17 +1,21 @@
 package ru.otus.hw.task03.service;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.stereotype.Service;
 import ru.otus.hw.task03.entity.User;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 @Service
 public class CacheService {
 
-    private final Map<String, UserCache> cache = new HashMap<>();
+    private final Cache<String, UserCache> cache = Caffeine.newBuilder()
+            .expireAfterWrite(Duration.ofMinutes(1))
+            .maximumSize(100)
+            .build();
 
     public void saveInCache(User user) {
         var userCache = new UserCache(
