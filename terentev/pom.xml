@@ -11,6 +11,7 @@
         <module>hw01-references-in-caches</module>
         <module>hw02-serial-gc</module>
         <module>hw03-memory-dump</module>
+        <module>hw06-jdk-tools</module>
     </modules>
 
     <packaging>pom</packaging>
