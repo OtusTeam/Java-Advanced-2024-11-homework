@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.1"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("org.graalvm.buildtools.native") version "0.10.3"
 }
 
 group = "ru.otus"
@@ -30,4 +31,11 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+graalvmNative {
+	testSupport = true
+	metadataRepository {
+		enabled.set(true)
+	}
 }
