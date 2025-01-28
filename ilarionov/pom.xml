@@ -12,6 +12,7 @@
     <modules>
         <module>task01</module>
         <module>task03</module>
+        <module>task04</module>
     </modules>
 
     <properties>
