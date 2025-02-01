@@ -11,6 +11,10 @@
     </parent>
 
     <artifactId>hw08-jmeter</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>jmeter</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
