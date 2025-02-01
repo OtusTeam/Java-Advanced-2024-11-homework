@@ -1,3 +1,6 @@
 spring:
   application:
     name: api
+server:
+  error:
+    include-message: always
