@@ -9,4 +9,4 @@ curl -X GET --location "http://localhost:8080/put/HELLO_WORLD"
 ### How to run 
 
 cd /Java-Advanced-11-homework/ilarionov/task05
-mvn spring-boot:run
+mvn install && mvn spring-boot:run -pl api
