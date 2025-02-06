@@ -24,6 +24,7 @@ import org.apache.logging.log4j.util.Strings;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -50,20 +51,21 @@ public class Main {
         var testPlanTree = new ListedHashTree();
         var threadGroupHashTree = testPlanTree.add(testPlan, threadGroup);
 
+        for (int i = 0; i < 300; i++) {
 
-        var sampler = getHttpSamplerProxy();
-        threadGroupHashTree.add(sampler);
+            var sampler = getHttpSamplerProxy(UUID.randomUUID());
+            threadGroupHashTree.add(sampler);
 
-        HeaderManager manager = new HeaderManager();
-        manager.add(new Header("Content-Type", "application/json"));
-        manager.setName(JMeterUtils.getResString("header_manager_title"));
-        manager.setProperty(TestElement.TEST_CLASS, HeaderManager.class.getName());
-        manager.setProperty(TestElement.GUI_CLASS, HeaderPanel.class.getName());
+            HeaderManager manager = new HeaderManager();
+            manager.add(new Header("Content-Type", "application/json"));
+            manager.setName(JMeterUtils.getResString("header_manager_title"));
+            manager.setProperty(TestElement.TEST_CLASS, HeaderManager.class.getName());
+            manager.setProperty(TestElement.GUI_CLASS, HeaderPanel.class.getName());
 
-        HashTree httpRequestTree = new HashTree();
-        httpRequestTree.add(sampler, manager);
-        threadGroupHashTree.add(httpRequestTree);
-
+            HashTree httpRequestTree = new HashTree();
+            httpRequestTree.add(sampler, manager);
+            threadGroupHashTree.add(httpRequestTree);
+        }
         SaveService.saveTree(testPlanTree, Files.newOutputStream(Paths.get("./user_service.jmx")));
 
         Summariser summer = null;
@@ -79,7 +81,7 @@ public class Main {
         jmeter.run();
     }
 
-    private static HTTPSamplerProxy getHttpSamplerProxy() {
+    private static HTTPSamplerProxy getHttpSamplerProxy(UUID uuid) {
         var httpSampler = new HTTPSamplerProxy();
         httpSampler.setDomain("localhost");
         httpSampler.setPort(8081);
@@ -88,7 +90,7 @@ public class Main {
         httpSampler.setFollowRedirects(true);
         httpSampler.setUseKeepAlive(true);
         httpSampler.setPostBodyRaw(true);
-        String body="{\"login\":\"${__UUID}\",\"password\":\"pass\"}";
+        String body=String.format("{\"login\":\"%s\",\"password\":\"pass\"}", uuid);
         httpSampler.addNonEncodedArgument("", body, "");
 
         httpSampler.setProperty(TestElement.TEST_CLASS, HTTPSamplerProxy.class.getName());
@@ -109,8 +111,8 @@ public class Main {
 
         var threadGroup = new ThreadGroup();
         threadGroup.setName("USER_TEST");
-        threadGroup.setNumThreads(10);
-        threadGroup.setRampUp(1);
+        threadGroup.setNumThreads(1);
+//        threadGroup.setRampUp(1);
         threadGroup.setSamplerController(loopController);
         threadGroup.setProperty(TestElement.TEST_CLASS, ThreadGroup.class.getName());
         threadGroup.setProperty(TestElement.GUI_CLASS, ThreadGroupGui.class.getName());
