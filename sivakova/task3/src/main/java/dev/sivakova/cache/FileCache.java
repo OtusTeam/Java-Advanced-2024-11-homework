@@ -32,5 +32,12 @@ public class FileCache {
         public int hashCode() {
             return Long.hashCode(id);
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o == null || getClass() != o.getClass()) return false;
+            UserId userId = (UserId) o;
+            return id == userId.id;
+        }
     }
 }
