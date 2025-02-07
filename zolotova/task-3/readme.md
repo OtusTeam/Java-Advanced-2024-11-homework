@@ -102,29 +102,6 @@ POST http://localhost:8080/api/users/register?login=exampleUser&password=example
 
 ![img_2.png](doc/img_2.png)
 
-##  Fix memory leak reason
 
-Исправления причины вызывающей утечку памяти разными способами
-реализованы в отдельных branches:
-
-### Использование WeakReference
-Позволяет gc удалять объекты, которые больше не используются, 
-даже если они находятся в кэше
-
-      branch: fix-memory-leak
-
-
-### Использование LinkedHashMap
-
-Позволяет автоматически удалять самые старые 
-элементы, когда размер кэша превышает заданное ограничение
-
-      branch: fix-memory-leak2
-
-### Использование библиотеки Caffeine
-
-Позволяет легко управлять размером кэша и временем жизни объектов.
-
-      branch: fix-memory-leak3
 
 

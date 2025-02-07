@@ -8,10 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.lang.ref.WeakReference;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -20,15 +18,12 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
 
-    private List<User> cachedUsers = new ArrayList<>();
+    private Map<String, WeakReference<User>> cachedUsers = new HashMap<>();
 
     public void registerUser(String login, String password) throws LoginAlreadyExistsException, UnableSaveDataException {
 
-        Optional<User> cachedUser = cachedUsers.stream()
-                .filter(user -> user.getLogin().equals(login))
-                .findFirst();
-
-        if (cachedUser.isPresent()) {
+        WeakReference<User> cachedUserRef = cachedUsers.get(login);
+        if (cachedUserRef != null && cachedUserRef.get() != null) {
             log.warn("User with this login already exists in cache.");
             throw new LoginAlreadyExistsException("User with this login already exists in cache.");
         }
@@ -45,7 +40,7 @@ public class UserServiceImpl implements UserService{
         input_user.setLargeData(generateLargeData());
 
         //memory leak reason
-        cachedUsers.add(input_user);
+        cachedUsers.put(login, new WeakReference<>(input_user));
 
 
         try {
