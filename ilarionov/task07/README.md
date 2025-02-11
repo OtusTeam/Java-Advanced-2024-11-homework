@@ -83,3 +83,7 @@ uncomment and run
 ### run-to-run test
 
 ![samples_run_to_run.png](src/main/resources/results/samples_run_to_run.png)
+
+## User service test
+
+![user_service_test.png](src/main/resources/results/user_service_test.png)

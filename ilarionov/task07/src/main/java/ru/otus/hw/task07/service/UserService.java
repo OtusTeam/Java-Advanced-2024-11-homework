@@ -23,4 +23,12 @@ public class UserService {
         userRepository.save(user);
         return new UserDto(user.getId(), user.getLogin(), user.getHash());
     }
+
+    @Transactional
+    public UserDto save(String name, byte[] password, HashAlgorithm algorithm) {
+        String hash = hashService.getHash(password, algorithm);
+        User user = new User(name, hash);
+        userRepository.save(user);
+        return new UserDto(user.getId(), user.getLogin(), user.getHash());
+    }
 }
