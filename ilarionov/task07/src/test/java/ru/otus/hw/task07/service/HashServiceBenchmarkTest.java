@@ -12,34 +12,23 @@ import java.util.concurrent.TimeUnit;
 @Threads(Threads.MAX)
 @BenchmarkMode(Mode.All)
 @Fork(value = 1, warmups = 0)
-@Warmup(iterations = 3, time = 100, timeUnit = TimeUnit.MILLISECONDS)
-@Measurement(iterations = 5, time = 3, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 2, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+@Measurement(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
 public class HashServiceBenchmarkTest {
 
     private final HashService hashService = new HashService();
-    private final byte[] password = "password123123123".getBytes();
+
+    @Param({"MD5", "SHA256", "SHA512"})
+    public HashAlgorithm algorithm;
+
+    @Param({"password123", "dsfa@#$afsda123@#$asd123asf"})
+    public String password;
 
     @Benchmark
     @OperationsPerInvocation(10000)
-    public void md5(Blackhole bh) {
+    public void hashing(Blackhole bh) {
         for (int i = 0; i < 10000; i++) {
-            bh.consume(hashService.getHash(password, HashAlgorithm.MD5));
-        }
-    }
-
-    @Benchmark
-    @OperationsPerInvocation(10000)
-    public void sha256(Blackhole bh) {
-        for (int i = 0; i < 10000; i++) {
-            bh.consume(hashService.getHash(password, HashAlgorithm.SHA256));
-        }
-    }
-
-    @Benchmark
-    @OperationsPerInvocation(10000)
-    public void sha512(Blackhole bh) {
-        for (int i = 0; i < 10000; i++) {
-            bh.consume(hashService.getHash(password, HashAlgorithm.SHA512));
+            bh.consume(hashService.getHash(password.getBytes(), algorithm));
         }
     }
 

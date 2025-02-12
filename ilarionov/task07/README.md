@@ -87,3 +87,9 @@ uncomment and run
 ## User service test
 
 ![user_service_test.png](src/main/resources/results/user_service_test.png)
+
+# Summary after review
+
+На Mac OS, чипсете M3 лучше всех показал себя алгоритм SHA256
+
+![summary_after_review.png](src/main/resources/results/summary_after_review.png)
