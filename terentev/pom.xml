@@ -14,6 +14,7 @@
         <module>hw05-modules</module>
         <module>hw07-benchmark</module>
         <module>hw08-jmeter</module>
+        <module>hw09-jfr</module>
     </modules>
 
     <packaging>pom</packaging>
