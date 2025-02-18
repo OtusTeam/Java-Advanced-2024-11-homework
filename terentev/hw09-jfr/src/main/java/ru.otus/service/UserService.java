@@ -29,24 +29,24 @@ public class UserService {
     }
 
     public synchronized void registerUser(String login, String password) {
-//        lock.lock();
-//        if (login == null || password == null) {
-//            throw new IllegalArgumentException("Login or password cannot be null");
-//        }
-//
-//        if (login.equals("error")) {
-//            throw new RuntimeException("Exception for simulating error");
-//        }
+        lock.lock();
+        if (login == null || password == null) {
+            throw new IllegalArgumentException("Login or password cannot be null");
+        }
 
-//        try {
+        if (login.equals("error")) {
+            throw new RuntimeException("Exception for simulating error");
+        }
+
+        try {
             log.info("Registering user with login: {}", login);
             User user = new User(login, password);
             userRepository.save(user);
             userRepository.findById(user.getId());
             userCache.put(login, new byte[520_000]);
-//        } finally {
-//            lock.unlock();
-//        }
+        } finally {
+            lock.unlock();
+        }
     }
 
     public byte[] getUserData(String login) {
