@@ -10,6 +10,8 @@
     <modules>
 <!--        cache-soft-weak-references-->
         <module>task-1</module>
+<!--        memory-dump-->
+        <module>task-3</module>
     </modules>
 
     <packaging>pom</packaging>
