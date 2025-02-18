@@ -17,7 +17,7 @@ import java.util.UUID;
 @RestController
 public class UserController implements UserApi {
 
-    private UserService service;
+    private final UserService service;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     public UserController(UserService service) {
