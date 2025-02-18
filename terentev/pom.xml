@@ -12,6 +12,7 @@
         <module>hw02-serial-gc</module>
         <module>hw03-memory-dump</module>
         <module>hw05-modules</module>
+        <module>hw06-jdk-tools</module>
         <module>hw07-benchmark</module>
         <module>hw08-jmeter</module>
     </modules>
