@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.otus.dto.UserDto;
 import ru.otus.entity.User;
 import ru.otus.repository.UserRepository;
+import ru.otus.util.PasswordHashUtil;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,7 +17,8 @@ public class RegistrationService {
     private final UserRepository userRepository;
     private final UserCacheService userCacheService;
 
-    public String register(UserDto userDto) {
+    // лишняя блокировка
+    public synchronized String register(UserDto userDto) {
         boolean exists =
                 userRepository
                         .findAll()
@@ -27,18 +29,20 @@ public class RegistrationService {
             throw new RuntimeException("User with this login already exists");
         }
 
-        // add 100KB random data to the user
-        byte[] randomData = new byte[100_000];
+        // add 1KB random data to the user
+        byte[] randomData = new byte[1_000];
         ThreadLocalRandom.current().nextBytes(randomData);
 
+        String hashedPassword = PasswordHashUtil.hashPassword(userDto.password(), "SHA-256");
         var user = User.builder()
                 .login(userDto.login())
-                .password(userDto.password())
+                .password(hashedPassword)
                 .data(randomData)
                 .build();
 
         userRepository.save(user);
-        log.info("Login: {} saved to DB", user.getLogin());
+        log.info("Login: {} password: {} saved to DB", user.getLogin(), user.getPassword());
+
         userCacheService.putUser(user);
         log.info("Login: {} saved to Cache", user.getLogin());
 

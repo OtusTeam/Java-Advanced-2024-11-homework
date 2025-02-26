@@ -13,6 +13,9 @@
         <module>hw03-memory-dump</module>
         <module>hw04-graalvm</module>
         <module>hw06-jdk-tools</module>
+        <module>hw07-jmh-benchmark</module>
+        <module>hw08-jmeter</module>
+        <module>hw09-jfr</module>
     </modules>
 
     <packaging>pom</packaging>
