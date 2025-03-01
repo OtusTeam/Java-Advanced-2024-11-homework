@@ -6,6 +6,9 @@
 Мы видим, что для 1000 запросов у нас 2000 селектов пользователей из таблицы users.
 ![VM_1.png](src%2Fmain%2Fresources%2FVM_1.png)
 
+Фильтруем стек вызовов и находим место вызова запроса
+![VM_1_2.png](src%2Fmain%2Fresources%2FVM_1_2.png)
+
 Комментируем лишний запрос:
 ![VM_2.png](src%2Fmain%2Fresources%2FVM_2.png)
 
