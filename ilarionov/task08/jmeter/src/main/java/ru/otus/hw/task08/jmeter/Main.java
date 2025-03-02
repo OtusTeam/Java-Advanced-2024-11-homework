@@ -24,6 +24,7 @@ import org.apache.logging.log4j.util.Strings;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 
 public class Main {
@@ -79,12 +80,14 @@ public class Main {
     }
 
     private static HTTPSamplerProxy getHttpSamplerProxy() {
+        var login = UUID.randomUUID().toString();
+        var password = UUID.randomUUID().toString();
         var body = """
                 {
-                    "login": "jmeter_user",
-                    "password": "jmeter_pass_323rwef1234fd@#$!#sdf"
+                    "login": "%s",
+                    "password": "%s"
                 }
-                """;
+                """.formatted(login, password);
         var httpSampler = new HTTPSamplerProxy();
         httpSampler.setDomain("localhost");
         httpSampler.setPort(8080);
