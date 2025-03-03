@@ -16,6 +16,7 @@
         <module>hw07-jmh-benchmark</module>
         <module>hw08-jmeter</module>
         <module>hw09-jfr</module>
+        <module>hw10-visualvm</module>
     </modules>
 
     <packaging>pom</packaging>
