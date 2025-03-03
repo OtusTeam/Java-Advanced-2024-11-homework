@@ -33,7 +33,7 @@ public class RegistrationService {
 
         var user = User.builder()
                 .login(userDto.login())
-                .password(userDto.passwordHash())
+                .password(userDto.password())
                 .data(randomData)
                 .build();
 
