@@ -17,6 +17,7 @@
         <module>hw08-jmeter</module>
         <module>hw09-jfr</module>
         <module>hw10-profiling</module>
+        <module>hw11-nio</module>
     </modules>
 
     <packaging>pom</packaging>
