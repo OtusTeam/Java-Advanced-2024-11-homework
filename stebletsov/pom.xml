@@ -18,6 +18,7 @@
         <module>hw09-jfr</module>
         <module>hw10-visualvm</module>
         <module>hw11-bytebuffer</module>
+        <module>hw12-spring-web-flux</module>
     </modules>
 
     <packaging>pom</packaging>
