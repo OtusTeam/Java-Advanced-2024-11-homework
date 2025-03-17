@@ -10,14 +10,12 @@ import reactor.core.publisher.Mono;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
-    public Mono<ResponseEntity<String>> handleRuntimeException(RuntimeException ex) {
-        return Mono.fromSupplier(() -> {
+    public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
             if (ex.getMessage() != null && ex.getMessage().contains("already exists")) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
             }
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Internal server error: " + ex.getMessage());
-        });
     }
 }

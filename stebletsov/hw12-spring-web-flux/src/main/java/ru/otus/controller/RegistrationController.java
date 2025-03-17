@@ -16,6 +16,8 @@ import ru.otus.dto.UserDto;
 import ru.otus.entity.User;
 import ru.otus.service.RegistrationService;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -30,31 +32,18 @@ public class RegistrationController {
                 .thenReturn(ResponseEntity.ok("User registered successfully!"));
     }
 
-    @GetMapping("/user/{id}")
-    public Mono<ResponseEntity<User>> getUser(@PathVariable("id") Long id) {
-        return registrationService.getUser(id)
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build());
-
-    }
-
-    @DeleteMapping("/user/{id}")
-    public Mono<Void> deleteUser(@PathVariable("id") Long id) {
-        return registrationService.deleteUser(id).then();
-    }
-
     @GetMapping("/users")
     public Flux<User> getAllUsers() {
         return registrationService.getAllUsers();
     }
 
     @GetMapping("/users/names")
-    public Flux<String> getAllUserNames() {
+    public Mono <Collection<String>> getAllUserNames() {
         return registrationService.getAllUserNames();
     }
 
     @GetMapping("/users/emails")
-    public Flux<String> getAllEmails() {
+    public Mono <Collection<String>> getAllEmails() {
         return registrationService.getAllEmails();
     }
 }

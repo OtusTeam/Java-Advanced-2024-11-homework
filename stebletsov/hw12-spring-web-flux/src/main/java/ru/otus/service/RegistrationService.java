@@ -10,12 +10,15 @@ import ru.otus.entity.User;
 import ru.otus.repository.UserRepository;
 import ru.otus.util.PasswordHashUtil;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class RegistrationService {
     private final UserRepository userRepository;
-    private final UserCacheService userCacheService;
 
     public Mono<Void> register(UserDto userDto) {
         return userRepository.existsByLogin(userDto.login())
@@ -35,31 +38,25 @@ public class RegistrationService {
 
             return userRepository.save(user)
                     .doOnSuccess(savedUser -> log.info("Login: {} password: {} saved to DB", savedUser.getLogin(), savedUser.getPassword()))
-                    .doOnSuccess(userCacheService::putUser)
                     .doOnSuccess(cachedUser -> log.info("Login: {} saved to Cache", cachedUser.getLogin()))
                     .then();
         });
-    }
-
-    public Mono<User> getUser(Long id) {
-        return userCacheService.getUser(id);
-    }
-
-    public Mono<Void> deleteUser(Long id) {
-        return userRepository.deleteById(id)
-                .then(Mono.fromRunnable(() -> userCacheService.evictUser(id)))
-                .then();
     }
 
     public Flux<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public Flux<String> getAllUserNames() {
-        return userRepository.findAll().map(User::getLogin);
+    public Mono <Collection<String>> getAllUserNames() {
+        return userRepository.findAll()
+                .map(User::getLogin)
+                .collectList()
+                .map(ArrayList::new);
     }
 
-    public Flux<String> getAllEmails() {
-        return userRepository.findAllEmails();
+    public Mono <Collection<String>> getAllEmails() {
+        return userRepository.findAllEmails()
+                .collectList()
+                .map(ArrayList::new);
     }
 }
