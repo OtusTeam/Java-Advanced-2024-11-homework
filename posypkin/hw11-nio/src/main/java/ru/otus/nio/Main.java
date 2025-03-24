@@ -1,25 +1,28 @@
 package ru.otus.nio;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     private static FileReader fileReader = new FileReader();
+    private static OffHeapDataStore offHeapDataStore = new OffHeapDataStore();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Введите путь до файла: ");
         String path = scanner.nextLine();
         var string = fileReader.readFile(path);
         System.out.println(string);
-        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
-        buffer.put(string.getBytes());
-        buffer.flip();
-        byte[] stringBytes = new byte[buffer.remaining()];
-        buffer.get(stringBytes);
-        System.out.println(new String(stringBytes, StandardCharsets.UTF_8));
+        offHeapDataStore.saveToDirectBuffer(string);
+        System.out.println("----------------------   Вывод из DirectBuffer  -----------------------------");
+        System.out.println(offHeapDataStore.loadFromBuffer());
+
+        MappedByteBufferStore mappedByteBufferStore = new MappedByteBufferStore(path);
+        var str = mappedByteBufferStore.readFromBuffer();
+
+        System.out.println("----------------------   Вывод из MappedByteBuffer  -----------------------------");
+        System.out.printf(str);
+        mappedByteBufferStore.close();
     }
 }
