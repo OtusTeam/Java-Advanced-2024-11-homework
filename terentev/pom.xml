@@ -19,6 +19,7 @@
         <module>hw10-profiling</module>
         <module>hw11-nio</module>
         <module>hw12-reactive</module>
+        <module>hw13-docker</module>
     </modules>
 
     <packaging>pom</packaging>
