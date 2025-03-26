@@ -1,6 +1,8 @@
 # Запуск SpringBoot приложения в Docker
 Spring приложение энпойнт - GET /hello, который возвращает строку "Hello world!"
 
+Собираем приложение: mvn package
+
 Создаём докерфайл
 
 ![0.JPG](res/0.JPG)
