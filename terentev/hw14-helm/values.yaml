@@ -1,0 +1,10 @@
+appname: helm-kubernetes-homework
+protocol: TCP
+port: 8080
+nodePort: 30001
+type: NodePort
+replicas: 1
+image:
+  repository: salterentev/otushelm-homework
+  tag: latest
+  pullPolicy: Always
