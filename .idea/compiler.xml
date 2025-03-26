@@ -20,6 +20,7 @@
         <module name="hw13-docker" />
         <module name="service" />
         <module name="hw01-references-in-caches" />
+        <module name="hw14-helm" />
         <module name="hw06-jdk-tools" />
         <module name="hw07-benchmark" />
         <module name="hw12-reactive" />
@@ -37,10 +38,11 @@
         <module name="hw03-memory-dump" />
       </profile>
       <profile name="Annotation profile for jmeter (1)" enabled="true">
-        <sourceOutputDir name="../../hw09-jfr/jmeter-jfr/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../../hw09-jfr/jmeter-jfr/target/generated-test-sources/test-annotations" />
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
         <module name="jmeter (1)" />
@@ -57,6 +59,7 @@
       <module name="hw10-profiling" options="-parameters" />
       <module name="hw12-reactive" options="-parameters" />
       <module name="hw13-docker" options="-parameters" />
+      <module name="hw14-helm" options="-parameters" />
       <module name="jmeter (1)" options="-parameters" />
     </option>
   </component>

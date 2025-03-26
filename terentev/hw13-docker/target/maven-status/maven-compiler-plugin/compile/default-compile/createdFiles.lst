@@ -1,0 +1,7 @@
+ru\otus\service\UserService.class
+ru\otus\config\DbConfig.class
+ru\otus\repository\UserRepository.class
+ru\otus\DockerApplication.class
+ru\otus\entity\User.class
+ru\otus\controller\HelloController.class
+ru\otus\controller\UserController.class
