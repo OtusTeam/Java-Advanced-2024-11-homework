@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/posypkin/hw10-visualvm" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="gradleHome" value="/Library/Gradle/gradle-8.11.1" />
+        <option name="gradleJvm" value="17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/posypkin/hw10-visualvm" />
           </set>
         </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/posypkin/hw12-react" />
+        <option name="gradleJvm" value="17" />
       </GradleProjectSettings>
     </option>
   </component>
