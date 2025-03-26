@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
@@ -9,6 +10,54 @@
         </processorPath>
         <module name="hw09-jfr.main" />
       </profile>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="core" />
+        <module name="hw11-nio" />
+        <module name="provider" />
+        <module name="hw13-docker" />
+        <module name="service" />
+        <module name="hw01-references-in-caches" />
+        <module name="hw06-jdk-tools" />
+        <module name="hw07-benchmark" />
+        <module name="hw12-reactive" />
+        <module name="api" />
+        <module name="hw02-serial-gc" />
+      </profile>
+      <profile name="Annotation profile for terentev" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="hw10-profiling" />
+        <module name="hw03-memory-dump" />
+      </profile>
+      <profile name="Annotation profile for jmeter (1)" enabled="true">
+        <sourceOutputDir name="../../hw09-jfr/jmeter-jfr/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../hw09-jfr/jmeter-jfr/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="jmeter (1)" />
+      </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api" options="-parameters" />
+      <module name="hw03-memory-dump" options="-parameters" />
+      <module name="hw07-benchmark" options="-parameters" />
+      <module name="hw08-jmeter" options="-parameters" />
+      <module name="hw09-jfr" options="-parameters" />
+      <module name="hw10-profiling" options="-parameters" />
+      <module name="hw12-reactive" options="-parameters" />
+      <module name="hw13-docker" options="-parameters" />
+      <module name="jmeter (1)" options="-parameters" />
+    </option>
   </component>
 </project>
