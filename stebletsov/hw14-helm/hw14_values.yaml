@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: mortar89/hw14-helm-app
+  tag: latest
+  pullPolicy: Always
+
+containerPort: 8080
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30080
+
+autoscaling:
+  enabled: false
