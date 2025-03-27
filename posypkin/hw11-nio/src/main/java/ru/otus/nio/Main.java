@@ -5,14 +5,15 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static FileReader fileReader = new FileReader();
+    private static MyFileReader myFileReader = new MyFileReader();
     private static OffHeapDataStore offHeapDataStore = new OffHeapDataStore();
 
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите путь до файла: ");
         String path = scanner.nextLine();
-        var string = fileReader.readFile(path);
+        myFileReader.storeFile(path);
+        String string = myFileReader.readFromBuffer();
         System.out.println(string);
         offHeapDataStore.saveToDirectBuffer(string);
         System.out.println("----------------------   Вывод из DirectBuffer  -----------------------------");
