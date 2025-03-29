@@ -20,6 +20,7 @@
         <module>hw11-bytebuffer</module>
         <module>hw12-spring-web-flux</module>
         <module>hw13-docker</module>
+        <module>hw14-helm</module>
     </modules>
 
     <packaging>pom</packaging>
