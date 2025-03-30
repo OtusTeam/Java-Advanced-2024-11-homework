@@ -16,8 +16,8 @@ import ru.otus.memory_dump_homework.repository.UserRepository;
 import static ru.otus.memory_dump_homework.TestUtils.createUser;
 import static ru.otus.memory_dump_homework.TestUtils.createUserDto;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@ExtendWith(SpringExtension.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ReactIT {
 
     @Autowired

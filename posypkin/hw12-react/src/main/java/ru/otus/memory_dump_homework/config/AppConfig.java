@@ -13,7 +13,7 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 @Configuration
 public class AppConfig {
 
-    @Bean
+//    @Bean
     public ConnectionFactoryInitializer initializer(@Qualifier("connectionFactory") ConnectionFactory connectionFactory) {
         var initializer = new ConnectionFactoryInitializer();
         initializer.setConnectionFactory(connectionFactory);
