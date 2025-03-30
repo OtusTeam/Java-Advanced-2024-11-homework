@@ -37,7 +37,7 @@ public class ReactIT {
         repository.save(user).map(
                 u -> {
                     client.get()
-                            .uri("/registration/getUser?userId=" + u.getId())
+                            .uri("/user?userId=" + u.getId())
                             .exchange()
                             .expectStatus().isOk()
                             .expectBody()
@@ -68,7 +68,7 @@ public class ReactIT {
         repository.save(new User(null, "test", "123456")).block();
         repository.save(new User(null, "jijdoiajs", "123456")).block();
         client.get()
-                .uri("/registration/getAllUsers")
+                .uri("/users")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()

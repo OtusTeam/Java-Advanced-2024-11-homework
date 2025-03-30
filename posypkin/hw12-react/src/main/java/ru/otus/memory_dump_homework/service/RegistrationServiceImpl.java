@@ -1,6 +1,7 @@
 package ru.otus.memory_dump_homework.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -10,6 +11,7 @@ import ru.otus.memory_dump_homework.model.UserDto;
 import ru.otus.memory_dump_homework.repository.UserRepository;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
 
@@ -18,19 +20,28 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public Mono<User> register(Mono<UserDto> user) {
-        return user.map(u -> mapper.map(u, User.class))
+        return user.map(u -> {
+                    log.info("User {} registered", u);
+                    return mapper.map(u, User.class);
+                })
                 .flatMap(repository::save);
     }
 
     @Override
     public Mono<UserDto> getUserById(Long userId) {
         return repository.findById(userId)
-                .map(user -> mapper.map(user, UserDto.class));
+                .map(user -> {
+                    log.info(user.toString());
+                    return mapper.map(user, UserDto.class);
+                });
     }
 
     @Override
     public Flux<UserDto> getAllUsers() {
         return repository.findAll()
-                .map(user -> mapper.map(user, UserDto.class));
+                .map(user -> {
+                    log.info(user.toString());
+                    return mapper.map(user, UserDto.class);
+                });
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.util.StreamUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.otus.memory_dump_homework.controller.RegistrationController;
+import ru.otus.memory_dump_homework.controller.UserController;
 import ru.otus.memory_dump_homework.entity.User;
 import ru.otus.memory_dump_homework.model.UserDto;
 import ru.otus.memory_dump_homework.repository.UserRepository;
@@ -32,9 +33,9 @@ class RegistrationControllerTest {
 		when(repository.findById(1L))
 				.thenReturn(Mono.just(createUser()));
 
-		WebTestClient client = createClient(repository);
+		WebTestClient client = createUserClient(repository);
 		client.get()
-				.uri("/registration/getUser?userId=1")
+				.uri("/user/1")
 				.exchange()
 				.expectStatus().isOk()
 				.expectBody()
@@ -49,7 +50,7 @@ class RegistrationControllerTest {
 		UserRepository repository = createMockRepo();
 		when(repository.save(any(User.class))).thenReturn(Mono.just(createUser()));
 
-		WebTestClient client = createClient(repository);
+		WebTestClient client = createRegistrationClient(repository);
 
 		client.post()
 				.uri("/registration/register")
@@ -72,19 +73,25 @@ class RegistrationControllerTest {
 		when(repository.findAll())
 				.thenReturn(Flux.fromIterable(List.of(createUser(), new User(1L, "test", "123456"))));
 
-		WebTestClient client = createClient(repository);
+		WebTestClient client = createUserClient(repository);
 
 		client.get()
-				.uri("/registration/getAllUsers")
+				.uri("/users")
 				.exchange()
 				.expectStatus().isOk()
 				.expectBody().json(json);
 
 	}
 
-	private WebTestClient createClient(UserRepository repository) {
+	private WebTestClient createRegistrationClient(UserRepository repository) {
 		return WebTestClient.bindToController(
 				new RegistrationController(new RegistrationServiceImpl(repository, new ModelMapper()))
+		).build();
+	}
+
+	private WebTestClient createUserClient(UserRepository repository) {
+		return WebTestClient.bindToController(
+				new UserController(new RegistrationServiceImpl(repository, new ModelMapper()))
 		).build();
 	}
 
