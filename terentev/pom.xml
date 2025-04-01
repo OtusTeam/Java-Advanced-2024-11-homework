@@ -20,6 +20,7 @@
         <module>hw11-nio</module>
         <module>hw12-reactive</module>
         <module>hw13-docker</module>
+        <module>hw14-helm</module>
     </modules>
 
     <packaging>pom</packaging>
