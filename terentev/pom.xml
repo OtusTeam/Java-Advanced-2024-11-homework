@@ -21,6 +21,7 @@
         <module>hw12-reactive</module>
         <module>hw13-docker</module>
         <module>hw14-helm</module>
+        <module>hw15-grafana</module>
     </modules>
 
     <packaging>pom</packaging>
