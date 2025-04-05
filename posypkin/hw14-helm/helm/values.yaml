@@ -1,0 +1,12 @@
+appname: helm-kubernetes-backend
+protocol: TCP
+port: 8080
+type: NodePort
+tier: backend
+replicas: 1
+nodePort: 30080
+targetPort: 8080
+image:
+  repository: my-java-app
+  tag: latest
+  pullPolicy: Never
