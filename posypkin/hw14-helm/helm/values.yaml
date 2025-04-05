@@ -9,4 +9,5 @@ targetPort: 8080
 image:
   repository: my-java-app
   tag: latest
+#  Будем брать образы только локально
   pullPolicy: Never
