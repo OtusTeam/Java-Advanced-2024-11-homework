@@ -1,0 +1,143 @@
+{
+  "id": null,
+  "uid": null,
+  "title": "HW15 Monitoring",
+  "tags": [],
+  "timezone": "browser",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Latency (avg)",
+      "targets": [
+        {
+          "expr": "avg(rate(http_server_requests_seconds_sum[1m])) / avg(rate(http_server_requests_seconds_count[1m]))",
+          "legendFormat": "avg latency",
+          "refId": "A"
+        }
+      ],
+      "id": 1,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "graph",
+      "title": "RPS (Requests/sec)",
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count[1m]))",
+          "legendFormat": "RPS",
+          "refId": "B"
+        }
+      ],
+      "id": 2,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "type": "graph",
+      "title": "RPM (Requests/min)",
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count[1m])) * 60",
+          "legendFormat": "RPM",
+          "refId": "F"
+        }
+      ],
+      "id": 5,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Errors (4xx, 5xx)",
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{status=~\"4..\"}[1m]))",
+          "legendFormat": "4xx",
+          "refId": "C"
+        },
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{status=~\"5..\"}[1m]))",
+          "legendFormat": "5xx",
+          "refId": "D"
+        }
+      ],
+      "id": 3,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 9
+      }
+    },
+    {
+      "type": "graph",
+      "title": "CPU Usage",
+      "targets": [
+        {
+          "expr": "avg(process_cpu_usage)",
+          "legendFormat": "CPU %",
+          "refId": "E"
+        }
+      ],
+      "id": 4,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 9
+      }
+    },
+    {
+      "type": "graph",
+      "title": "RAM (JVM memory used)",
+      "targets": [
+        {
+          "expr": "avg by (id) (jvm_memory_used_bytes{area=\"heap\"}) / 1024 / 1024",
+          "legendFormat": "{{id}} MB",
+          "refId": "G"
+        }
+      ],
+      "id": 6,
+      "lines": true,
+      "points": false,
+      "linewidth": 2,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      }
+    }
+  ]
+}
