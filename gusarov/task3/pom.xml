@@ -29,6 +29,8 @@
 	<properties>
 		<java.version>21</java.version>
 		<mapStruct.version>1.5.2.Final</mapStruct.version>
+		<mainClass>org.example.task3.Task3Application</mainClass>
+		<imageName>testNative</imageName>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -89,6 +91,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>${mainClass}</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -143,7 +146,198 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>${mainClass}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-shade-plugin</artifactId>-->
+<!--				<version>3.5.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>package</phase>-->
+<!--						<goals>-->
+<!--							<goal>shade</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.6.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>${mainClass}</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>java</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>${mainClass}</mainClass>
+						</configuration>
+					</execution>
+					<execution>
+						<id>native</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${project.build.directory}/${imageName}</executable>
+							<workingDirectory>${project.build.directory}</workingDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>native</id>
+			<build>
+				<plugins>
+<!--					<plugin>-->
+<!--						<groupId>org.codehaus.mojo</groupId>-->
+<!--						<artifactId>exec-maven-plugin</artifactId>-->
+<!--						<version>3.1.1</version>-->
+<!--						<executions>-->
+<!--							<execution>-->
+<!--								<id>java-agent</id>-->
+<!--								<goals>-->
+<!--									<goal>exec</goal>-->
+<!--								</goals>-->
+<!--								<configuration>-->
+<!--									<executable>java</executable>-->
+<!--									<workingDirectory>${project.build.directory}</workingDirectory>-->
+<!--									<arguments>-->
+<!--										<argument>-classpath</argument>-->
+<!--										<classpath/>-->
+<!--										<argument>${mainClass}</argument>-->
+<!--									</arguments>-->
+<!--								</configuration>-->
+<!--							</execution>-->
+<!--							<execution>-->
+<!--								<id>native</id>-->
+<!--								<goals>-->
+<!--									<goal>exec</goal>-->
+<!--								</goals>-->
+<!--								<configuration>-->
+<!--									<executable>${project.build.directory}/${imageName}</executable>-->
+<!--									<workingDirectory>${project.build.directory}</workingDirectory>-->
+<!--								</configuration>-->
+<!--							</execution>-->
+<!--						</executions>-->
+<!--					</plugin>-->
+
+<!--					<plugin>-->
+<!--						<groupId>org.graalvm.buildtools</groupId>-->
+<!--						<artifactId>native-maven-plugin</artifactId>-->
+<!--						<version>0.10.3</version>-->
+<!--						<extensions>true</extensions>-->
+<!--						<executions>-->
+<!--							<execution>-->
+<!--								<id>build-native</id>-->
+<!--								<goals>-->
+<!--									<goal>generateResourceConfig</goal>-->
+<!--									<goal>compile-no-fork</goal>-->
+<!--								</goals>-->
+<!--								<phase>package</phase>-->
+<!--							</execution>-->
+<!--							<execution>-->
+<!--								<id>test-native</id>-->
+<!--								<goals>-->
+<!--									<goal>generateTestResourceConfig</goal>-->
+<!--									<goal>test</goal>-->
+<!--								</goals>-->
+<!--								<phase>test</phase>-->
+<!--							</execution>-->
+<!--						</executions>-->
+<!--						<configuration>-->
+<!--							&lt;!&ndash; ... &ndash;&gt;-->
+<!--							<fallback>false</fallback>-->
+<!--							<agent>-->
+<!--								<enabled>true</enabled>-->
+<!--							</agent>-->
+<!--						</configuration>-->
+<!--					</plugin>-->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+					</plugin>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<version>0.10.3</version>
+						<extensions>true</extensions>
+						<executions>
+							<execution>
+								<id>test-native</id>
+								<goals>
+									<goal>generateTestResourceConfig</goal>
+									<goal>test</goal>
+								</goals>
+								<phase>test</phase>
+							</execution>
+							<execution>
+								<id>build-native</id>
+								<goals>
+									<goal>generateResourceConfig</goal>
+									<goal>compile-no-fork</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<fallback>false</fallback>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
