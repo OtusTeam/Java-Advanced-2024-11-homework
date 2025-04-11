@@ -1,5 +1,6 @@
 package org.example.task15.controller;
 
+import io.micrometer.core.instrument.MeterRegistry;
 import org.example.task15.controller.api.UserApi;
 import org.example.task15.models.ResultWithId;
 import org.example.task15.models.UserReq;
@@ -12,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 @RestController
@@ -20,9 +20,11 @@ public class UserController implements UserApi {
 
     private UserService service;
     Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final MeterRegistry meterRegistry;
 
-    public UserController(UserService service) {
+    public UserController(UserService service, MeterRegistry meterRegistry) {
         this.service = service;
+        this.meterRegistry = meterRegistry;
     }
 
     @Override
@@ -30,7 +32,8 @@ public class UserController implements UserApi {
         UUID runId = UUID.randomUUID();
         try {
             logger.info(String.format("USER_CREATE: runId: '%s', req: '%s'", runId, req));
-            return new ResponseEntity<>(new ResultWithId(service.add(req, runId)), HttpStatus.resolve(201));
+            UUID res = meterRegistry.timer("user_crerate.time").record(() -> service.add(req, runId));
+            return new ResponseEntity<>(new ResultWithId(res), HttpStatus.resolve(201));
         } catch (ServiceEntityExistRuntimeException e) {
             String err = String.format("create: ServiceEntityExistRuntimeException runId: '%s', req: '%s', error: '%s'", runId, req, e);
             logger.warn(err);
