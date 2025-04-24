@@ -30,7 +30,7 @@ public class RegistrationController {
 
     private final RegistrationService registrationService;
 
-    @Operation(summary = "Register a new use")
+    @Operation(summary = "Register a new user")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "User successfully registered"),
             @ApiResponse(responseCode = "400", description = "User already exists")
