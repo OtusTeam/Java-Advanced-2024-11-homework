@@ -22,6 +22,7 @@
         <module>hw13-docker</module>
         <module>hw14-helm</module>
         <module>hw15-grafana</module>
+        <module>hw16-open-api</module>
     </modules>
 
     <packaging>pom</packaging>
