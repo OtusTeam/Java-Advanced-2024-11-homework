@@ -1,7 +1,9 @@
 package ru.otus.memory_dump_homework.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,14 @@ public class RegistrationController {
     private final RegistrationService service;
 
     @PostMapping("/register")
+    @Operation(
+            summary = "Зарегистрировать пользователя",
+            description = "Регистрирует пользователя и возвращает id пользователя при успешной регистарции"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Пользователь успешно зарегистрирован"),
+            @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
+    })
     public ResponseEntity<String> register(
             @Parameter(
                     name = "user",
@@ -45,6 +55,15 @@ public class RegistrationController {
     }
 
     @GetMapping("/getUser")
+    @Operation(
+            summary = "Получить пользователя по ID",
+            description = "Возвращает пользователя по заданному ID, если он существует"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Пользователь найден"),
+            @ApiResponse(responseCode = "404", description = "Пользователь не найден"),
+            @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
+    })
     public ResponseEntity<UserDto> getUserById(
             @Parameter(
                     name = "userId",
