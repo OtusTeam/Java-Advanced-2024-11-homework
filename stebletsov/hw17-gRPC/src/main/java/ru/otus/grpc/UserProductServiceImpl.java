@@ -3,7 +3,7 @@ package ru.otus.grpc;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Service
+@GrpcService
 @Slf4j
 public class UserProductServiceImpl extends UserProductServiceGrpc.UserProductServiceImplBase {
 
