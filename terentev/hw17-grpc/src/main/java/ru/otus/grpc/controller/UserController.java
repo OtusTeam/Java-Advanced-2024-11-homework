@@ -1,4 +1,4 @@
-package ru.otus.controller;
+package ru.otus.grpc.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ru.otus.entity.User;
-import ru.otus.service.UserService;
+import ru.otus.grpc.entity.User;
+import ru.otus.grpc.service.UserService;
 
 @RestController
 @RequestMapping("/users")

@@ -1,4 +1,4 @@
-package ru.otus.config;
+package ru.otus.grpc.config;
 
 import io.r2dbc.spi.ConnectionFactory;
 import org.springframework.context.annotation.Bean;

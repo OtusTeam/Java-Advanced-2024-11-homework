@@ -1,4 +1,4 @@
-package ru.otus.entity;
+package ru.otus.grpc.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
