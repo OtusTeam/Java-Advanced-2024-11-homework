@@ -43,6 +43,7 @@ dependencies {
     implementation("io.grpc:grpc-stub:${grpcVersion}")
     implementation("com.google.protobuf:protobuf-java:4.27.3")
     implementation("javax.annotation:javax.annotation-api:1.3.2")
+    implementation("net.devh:grpc-server-spring-boot-starter:3.1.0.RELEASE")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(platform("org.junit:junit-bom:5.9.1"))

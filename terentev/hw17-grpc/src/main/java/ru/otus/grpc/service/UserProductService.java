@@ -4,10 +4,12 @@ import com.google.protobuf.Empty;
 import io.grpc.Status;
 import io.grpc.StatusException;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 import ru.otus.grpc.*;
 
 import java.util.*;
 
+@GrpcService
 public class UserProductService extends UserProductServiceGrpc.UserProductServiceImplBase {
 
     private final Map<String, User> userMap = new HashMap<>();
