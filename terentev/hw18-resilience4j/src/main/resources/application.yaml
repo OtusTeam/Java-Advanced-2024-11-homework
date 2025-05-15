@@ -1,0 +1,23 @@
+resilience4j:
+  rate-limiter:
+    instances:
+      rps_limiter:
+        limit-for-period: 20
+        limit-refresh-period: 1s
+        timeout-duration: 0
+      rpm_limiter:
+        limit-for-period: 30
+        limit-refresh-period: 1m
+        timeout-duration: 0
+
+  circuitbreaker:
+    instances:
+      circuitBreaker:
+        register-health-indicator: true
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
