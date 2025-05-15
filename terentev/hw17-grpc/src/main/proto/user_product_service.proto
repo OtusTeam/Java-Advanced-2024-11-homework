@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package ru.otus.grpc;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "ru.otus.grpc";
+option java_outer_classname = "UserProductProto";
+
+message User {
+    string id = 1;
+    string email = 2;
+    string username = 3;
+}
+
+message Product {
+    string id = 1;
+    string name = 2;
+}
+
+message CreateUserRequest {
+    string email = 1;
+    string username = 2;
+}
+
+message CreateUserResponse {
+    string id = 1;
+}
+
+message ChangeUserEmailRequest {
+    string id = 1;
+    string email = 2;
+}
+
+message ChangeUserNameRequest {
+    string id = 1;
+    string username = 2;
+}
+
+message CreateProductRequest {
+    string name = 1;
+}
+
+message CreateProductResponse {
+    string id = 1;
+}
+
+message AddProductToCartRequest {
+    string userId = 1;
+    string productId = 2;
+}
+
+service UserProductService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+    rpc ChangeUserEmail(ChangeUserEmailRequest) returns (google.protobuf.Empty);
+    rpc ChangeUserName(ChangeUserNameRequest) returns (google.protobuf.Empty);
+    rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+    rpc AddProductToCart(AddProductToCartRequest) returns (google.protobuf.Empty);
+}
