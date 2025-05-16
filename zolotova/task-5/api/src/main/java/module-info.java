@@ -3,8 +3,6 @@ module api{
     requires spring.boot.autoconfigure;
     requires spring.web;
     requires service;
-    requires core;
-    requires provider;
     requires entities;
     requires lombok;
     requires org.slf4j;

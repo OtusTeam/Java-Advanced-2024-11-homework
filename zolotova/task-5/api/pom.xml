@@ -47,12 +47,6 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
-<!--                        <configuration>-->
-<!--                            <includeSystemScope>true</includeSystemScope>-->
-<!--                            <layers>-->
-<!--                                <enabled>true</enabled>-->
-<!--                            </layers>-->
-<!--                        </configuration>-->
                     </execution>
                 </executions>
             </plugin>

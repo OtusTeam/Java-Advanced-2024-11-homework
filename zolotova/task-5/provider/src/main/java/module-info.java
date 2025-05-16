@@ -3,7 +3,6 @@ module provider{
     requires org.slf4j;
     requires entities;
     requires spring.context;
-    requires spring.core;
     requires com.fasterxml.jackson.databind;
     requires org.mapstruct;
 

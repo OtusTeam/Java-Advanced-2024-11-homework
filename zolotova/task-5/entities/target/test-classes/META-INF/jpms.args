@@ -1,4 +1,0 @@
---patch-module
-entities=_
---add-reads
-entities=ALL-UNNAMED

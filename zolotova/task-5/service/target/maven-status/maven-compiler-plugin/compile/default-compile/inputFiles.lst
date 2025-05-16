@@ -1,8 +1,0 @@
-/home/jane/src/ShrekRealmExpander/service/src/main/java/module-info.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/internal/NewCharactersServiceImpl.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/api/exceptions/NotEnchantedCharacterException.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/api/exceptions/CharacterAlreadyExistsException.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/internal/ShrekRoleAssignmentService.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/api/NewCharactersService.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/config/NewCharacterServiceSpringConfig.java
-/home/jane/src/ShrekRealmExpander/service/src/main/java/edu/janeforjane/service/internal/MagicalIdGenerator.java

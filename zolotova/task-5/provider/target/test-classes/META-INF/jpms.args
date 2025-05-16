@@ -1,4 +1,0 @@
---patch-module
-provider=_
---add-reads
-provider=ALL-UNNAMED

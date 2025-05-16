@@ -1,3 +1,0 @@
-application:
-  filedatasource:
-    path: jdbc:h2:mem:mydb

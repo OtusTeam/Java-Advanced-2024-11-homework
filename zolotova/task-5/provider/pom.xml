@@ -40,7 +40,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}</finalName><!-- имя которое получит проект при сборке-->
+        <finalName>${project.artifactId}</finalName>
     </build>
 
 </project>

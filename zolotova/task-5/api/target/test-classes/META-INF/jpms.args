@@ -1,4 +1,0 @@
---patch-module
-api=_
---add-reads
-api=ALL-UNNAMED
