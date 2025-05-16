@@ -1,0 +1,8 @@
+edu/janeforjane/service/internal/NewCharactersServiceImpl.class
+edu/janeforjane/service/api/exceptions/CharacterAlreadyExistsException.class
+module-info.class
+edu/janeforjane/service/internal/ShrekRoleAssignmentService.class
+edu/janeforjane/service/api/exceptions/NotEnchantedCharacterException.class
+edu/janeforjane/service/internal/MagicalIdGenerator.class
+edu/janeforjane/service/config/NewCharacterServiceSpringConfig.class
+edu/janeforjane/service/api/NewCharactersService.class

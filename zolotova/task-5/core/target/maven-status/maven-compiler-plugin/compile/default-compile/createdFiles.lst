@@ -1,0 +1,9 @@
+edu/janeforjane/core/internal/mapper/ShrekCharacterEnchantedCharacterMapper.class
+edu/janeforjane/core/config/CoreConfig.class
+module-info.class
+edu/janeforjane/core/internal/ShrekCharactersDatasourceImpl.class
+edu/janeforjane/core/internal/ShrekCharactersStorage.class
+edu/janeforjane/core/api/ShrekCharactersDatasource.class
+edu/janeforjane/core/internal/CoreDataLoaderListener.class
+edu/janeforjane/core/internal/entities/ShrekCharacterDB.class
+edu/janeforjane/core/internal/mapper/ShrekCharacterEnchantedCharacterMapperImpl.class

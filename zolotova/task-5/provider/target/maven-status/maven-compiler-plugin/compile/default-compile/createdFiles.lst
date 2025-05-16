@@ -1,0 +1,9 @@
+edu/janeforjane/provider/internal/mapper/FairytaleEnchantedCharacterMapperImpl.class
+edu/janeforjane/provider/internal/FairytaleCharactersStorage.class
+edu/janeforjane/provider/internal/mapper/FairytaleEnchantedCharacterMapper.class
+module-info.class
+edu/janeforjane/provider/internal/FairytaleCharactersProviderImpl.class
+edu/janeforjane/provider/config/ProviderConfig.class
+edu/janeforjane/provider/internal/ProviderDataLoaderListener.class
+edu/janeforjane/provider/internal/entities/FairytaleCharacter.class
+edu/janeforjane/provider/api/FairytaleCharactersProvider.class
