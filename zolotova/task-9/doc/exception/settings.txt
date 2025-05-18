@@ -1,0 +1,19 @@
+    	2025-05-10T09:18:17.491+03:00  INFO 478227 --- [nio-8080-exec-1] e.janeforjane.controller.UserController  : Got request for registration
+        Hibernate: select u1_0.id,u1_0.login,u1_0.password from users u1_0 where u1_0.login=?
+        Hibernate: select next value for users_seq
+        2025-05-10T09:18:17.586+03:00  INFO 478227 --- [nio-8080-exec-1] e.janeforjane.service.UserServiceImpl    : New user was saved: User{login='test-user', password='amcqvpgc'}
+        Hibernate: insert into users (login,password,id) values (?,?,?)
+        2025-05-10T09:18:20.801+03:00  INFO 478227 --- [nio-8080-exec-2] e.janeforjane.controller.UserController  : Got request for registration
+        Hibernate: select u1_0.id,u1_0.login,u1_0.password from users u1_0 where u1_0.login=?
+        2025-05-10T09:18:20.804+03:00  WARN 478227 --- [nio-8080-exec-2] e.janeforjane.service.UserServiceImpl    : User with this login already exists in database.
+        2025-05-10T09:18:20.806+03:00 ERROR 478227 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.Exception: Login already exists!] with root cause
+
+        java.lang.Exception: Login already exists!
+        	at edu.janeforjane.service.UserServiceImpl.registerUser(UserServiceImpl.java:39) ~[classes/:na]
+        	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+        	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+        	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+        	at java.base/java.lang.reflect.Method.invoke(Method.java:569) ~[na:na]
+        	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.9.jar:6.0.9]
+        	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.9.jar:6.0.9]
+        	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.9.jar:6.0.9]
