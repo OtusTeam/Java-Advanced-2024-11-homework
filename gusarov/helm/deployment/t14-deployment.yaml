@@ -1,0 +1,34 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helm-kubernetes-t14
+spec:
+  selector:
+    app: helm-kubernetes-t14
+  ports:
+  - protocol: TCP
+    port: 80
+    nodePort: 30080
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-kubernetes-t14
+spec:
+  selector:
+      matchLabels:
+        app: helm-kubernetes-t14
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helm-kubernetes-t14
+    spec:
+      containers:
+        - name: helm-kubernetes-t14
+          image: 20dockerdev22/t14:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+

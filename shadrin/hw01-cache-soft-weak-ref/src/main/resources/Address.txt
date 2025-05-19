@@ -1,0 +1,20 @@
+123 Maple Street, Springfield, IL 62701
+456 Oak Avenue, Chicago, IL 60601
+789 Pine Road, Los Angeles, CA 90001
+321 Elm Boulevard, New York, NY 10001
+654 Cedar Lane, Austin, TX 73301
+987 Birch Drive, Miami, FL 33101
+135 Willow Way, Seattle, WA 98101
+246 Aspen Crescent, Denver, CO 80202
+369 Redwood Court, San Francisco, CA 94102
+481 Maplewood Drive, Boston, MA 02101
+582 Oak Ridge Road, Phoenix, AZ 85001
+693 Pinehill Street, Dallas, TX 75201
+810 Cherry Circle, Atlanta, GA 30301
+204 Birchwood Terrace, Portland, OR 97201
+315 Walnut Grove, San Diego, CA 92101
+427 Rosewood Lane, Minneapolis, MN 55101
+538 Cedar Ridge, Houston, TX 77001
+649 Magnolia Avenue, Denver, CO 80203
+750 Dogwood Drive, Salt Lake City, UT 84101
+861 Hickory Street, Raleigh, NC 27601

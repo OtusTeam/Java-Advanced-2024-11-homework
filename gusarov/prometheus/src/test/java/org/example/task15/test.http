@@ -1,0 +1,11 @@
+### GET request with a header
+GET http://localhost:8095/actuator/prometheus
+
+###
+POST http://localhost:8095/api/v1/users
+Content-Type: application/json
+
+{
+  "login":"l4",
+  "password":"1qazxsw23edc1qazxsw23edc1qazxsw23edc"
+}

@@ -1,0 +1,1 @@
+call helm upgrade --install helm-homework --values .\values.yaml .\deployment\helm

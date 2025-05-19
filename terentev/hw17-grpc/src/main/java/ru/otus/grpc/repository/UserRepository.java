@@ -1,0 +1,15 @@
+package ru.otus.grpc.repository;
+
+import org.springframework.data.r2dbc.repository.Query;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import ru.otus.grpc.entity.User;
+
+public interface UserRepository extends R2dbcRepository<User, Long> {
+
+    Mono<User> findUserByLogin(String login);
+
+    @Query("SELECT email FROM app_users WHERE email IS NOT NULL AND email != ''")
+    Flux<String> findValidEmails();
+}

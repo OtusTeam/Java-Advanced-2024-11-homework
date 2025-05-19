@@ -1,0 +1,1 @@
+call kubectl create -f .\deployment\t14-deployment.yaml
