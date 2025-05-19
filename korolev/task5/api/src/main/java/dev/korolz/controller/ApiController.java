@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import dev.korolz.DataProvider;
 import dev.korolz.DataService;
-import dev.korolz.InMemoryDatabase;
 
 import java.util.Map;
 
@@ -12,12 +11,10 @@ import java.util.Map;
 public class ApiController {
 
     private final DataService dataService;
-    private final InMemoryDatabase database;
 
     public ApiController() {
-        this.database = new InMemoryDatabase();
         DataProvider provider = new DataProvider();
-        this.dataService = new DataService(database, provider);
+        this.dataService = new DataService(provider);
     }
 
     @GetMapping("/save")
@@ -28,6 +25,6 @@ public class ApiController {
 
     @GetMapping("/all")
     public Map<Long, String> getAllData() {
-        return database.getDatabase();
+        return dataService.getAll();
     }
 }
