@@ -1,0 +1,142 @@
+[
+  {
+    "id": "Abr-234-cad-567-abr-890",
+    "name": "Shrek",
+    "shrekRole": "Main",
+    "personalityTraits": "Grumpy, Kind-hearted",
+    "shrekStoryline": "An adventure with Shrek in the world of Shrek.",
+    "group": "creature",
+    "alignment": "good",
+    "originStory": "Shrek is an ogre who lives in a swamp and becomes an unlikely hero.",
+    "specialAbilities": [
+      "Can scare off intruders with his ogre roar",
+      "Has a heart of gold"
+    ]
+  },
+  {
+    "id": "Hoc-345-us-678-Poc-901",
+    "name": "Fiona",
+    "shrekRole": "Main",
+    "personalityTraits": "Brave, Independent",
+    "shrekStoryline": "An adventure with Fiona in the world of Shrek.",
+    "group": "human",
+    "alignment": "good",
+    "originStory": "Fiona is a princess who was cursed to turn into an ogre at night.",
+    "specialAbilities": [
+      "Can transform into an ogre",
+      "Has excellent martial arts skills"
+    ]
+  },
+  {
+    "id": "Sim-456-Sa-789-la-234",
+    "name": "Donkey",
+    "shrekRole": "Main",
+    "personalityTraits": "Grumpy, Kind-hearted",
+    "shrekStoryline": "An adventure with Donkey in the world of Shrek.",
+    "group": "animal",
+    "alignment": "good",
+    "originStory": "Donkey is a talking donkey who becomes Shrek's loyal companion.",
+    "specialAbilities": [
+      "Can talk and sing",
+      "Has a knack for getting into trouble"
+    ]
+  },
+  {
+    "id": "Ope-567-n-890-Se-345",
+    "name": "Puss",
+    "shrekRole": "Supporting",
+    "personalityTraits": "Brave, Grumpy",
+    "shrekStoryline": "An adventure with Puss in the world of Shrek.",
+    "group": "animal",
+    "alignment": "good",
+    "originStory": "Puss in Boots is a swashbuckling cat with a mysterious past.",
+    "specialAbilities": [
+      "Expert swordsmanship",
+      "Can charm anyone with his big eyes"
+    ]
+  },
+  {
+    "id": "Ala-678-ka-901-zam-234",
+    "name": "Gingy",
+    "shrekRole": "Main",
+    "personalityTraits": "Kind-hearted, Grumpy",
+    "shrekStoryline": "An adventure with Gingy in the world of Shrek.",
+    "group": "creature",
+    "alignment": "good",
+    "originStory": "Gingy is a gingerbread man brought to life by a spell.",
+    "specialAbilities": [
+      "Can survive being eaten",
+      "Has a sweet tooth for revenge"
+    ]
+  },
+  {
+    "id": "Hoc-789-us-234-Poc-567",
+    "name": "Pinocchio",
+    "shrekRole": "Main",
+    "personalityTraits": "Brave, Grumpy",
+    "shrekStoryline": "An adventure with Pinocchio in the world of Shrek.",
+    "group": "creature",
+    "alignment": "good",
+    "originStory": "Pinocchio is a wooden boy who wants to be a real boy.",
+    "specialAbilities": [
+      "His nose grows when he lies",
+      "Making him a terrible poker player"
+    ]
+  },
+  {
+    "id": "Sim-890-Sa-345-la-678",
+    "name": "Dragon",
+    "shrekRole": "Supporting",
+    "personalityTraits": "Grumpy, Independent",
+    "shrekStoryline": "An adventure with Dragon in the world of Shrek.",
+    "group": "creature",
+    "alignment": "good",
+    "originStory": "Dragon is a fierce dragon who falls in love with Donkey.",
+    "specialAbilities": [
+      "Can breathe fire",
+      "Has a soft spot for Donkey's singing"
+    ]
+  },
+  {
+    "id": "Ope-234-n-567-Se-890",
+    "name": "Farquaad",
+    "shrekRole": "Supporting",
+    "personalityTraits": "Independent, Brave",
+    "shrekStoryline": "An adventure with Farquaad in the world of Shrek.",
+    "group": "human",
+    "alignment": "bad",
+    "originStory": "Lord Farquaad is a short-tempered ruler with a Napoleon complex.",
+    "specialAbilities": [
+      "Can command an army of knights",
+      "Has a talent for being annoying"
+    ]
+  },
+  {
+    "id": "Ala-345-ka-678-zam-901",
+    "name": "Three Pigs",
+    "shrekRole": "Supporting",
+    "personalityTraits": "Independent, Brave",
+    "shrekStoryline": "An adventure with Three Pigs in the world of Shrek.",
+    "group": "animal",
+    "alignment": "good",
+    "originStory": "The Three Little Pigs are brothers who build houses to protect themselves from the Big Bad Wolf.",
+    "specialAbilities": [
+      "Expert builders",
+      "Can outsmart the wolf with their clever plans"
+    ]
+  },
+  {
+    "id": "Abr-678-cad-234-abr-567",
+    "name": "Wolf",
+    "shrekRole": "Main",
+    "personalityTraits": "Grumpy, Independent",
+    "shrekStoryline": "An adventure with Wolf in the world of Shrek.",
+    "group": "animal",
+    "alignment": "bad",
+    "originStory": "The Big Bad Wolf is a cunning and ruthless predator who loves to blow down houses.",
+    "specialAbilities": [
+      "Can blow down houses with his powerful lungs",
+      "Has a knack for disguises"
+    ]
+  }
+]

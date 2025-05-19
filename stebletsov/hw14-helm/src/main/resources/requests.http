@@ -1,0 +1,41 @@
+### hello endpoint
+GET http://localhost:30080/hello
+
+### Регистрируем нескольких пользователей
+POST http://localhost:30080/api/register
+Content-Type: application/json
+
+{
+  "login": "user1",
+  "password": "pass1",
+  "email": "user1@email.com"
+}
+
+###
+POST http://localhost:30080/api/register
+Content-Type: application/json
+
+{
+"login": "user2",
+"password": "pass2",
+"email": ""
+}
+
+###
+POST http://localhost:30080/api/register
+Content-Type: application/json
+
+{
+"login": "user3",
+"password": "pass3",
+"email": "user3@email.com"
+}
+
+
+### Получаем список emails
+GET http://localhost:30080/api/users/emails
+Accept: application/json
+
+### Получаем список имен
+GET http://localhost:30080/api/users/names
+Accept: application/json
