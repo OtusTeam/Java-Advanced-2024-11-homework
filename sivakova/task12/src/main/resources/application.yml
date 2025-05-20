@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+
+  data:
+    mongodb:
+      port: 27017
+      database: testdb
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 6.0.5

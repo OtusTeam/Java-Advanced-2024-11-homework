@@ -1,0 +1,1 @@
+rootProject.name = "hw18-resilience4j"
