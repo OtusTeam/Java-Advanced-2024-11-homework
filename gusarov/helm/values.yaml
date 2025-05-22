@@ -1,0 +1,10 @@
+appname: helm-kubernetes-t14
+protocol: TCP
+port: 80
+nodePort: 30080
+type: NodePort
+replicas: 1
+image:
+  repository: 20dockerdev22/t14
+  tag: 0.0.1
+  pullPolicy: Always

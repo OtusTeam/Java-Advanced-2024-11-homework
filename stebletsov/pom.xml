@@ -10,6 +10,20 @@
     <modules>
         <module>hw01-soft-weak-references</module>
         <module>hw02-gc-tuning</module>
+        <module>hw03-memory-dump</module>
+        <module>hw04-graalvm</module>
+        <module>hw06-jdk-tools</module>
+        <module>hw07-jmh-benchmark</module>
+        <module>hw08-jmeter</module>
+        <module>hw09-jfr</module>
+        <module>hw10-visualvm</module>
+        <module>hw11-bytebuffer</module>
+        <module>hw12-spring-web-flux</module>
+        <module>hw13-docker</module>
+        <module>hw14-helm</module>
+        <module>hw15-grafana</module>
+        <module>hw16-openAPI</module>
+        <module>hw17-gRPC</module>
     </modules>
 
     <packaging>pom</packaging>

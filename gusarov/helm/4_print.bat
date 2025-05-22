@@ -1,0 +1,1 @@
+call helm template .\deployment\helm\ --values .\values.yaml

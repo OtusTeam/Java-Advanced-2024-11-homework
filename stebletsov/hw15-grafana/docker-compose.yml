@@ -1,0 +1,60 @@
+services:
+
+  hw15-app:
+    build: .
+    container_name: hw15-app
+    ports:
+      - "80:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/pgdb
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_USERNAME: pguser
+      SPRING_DATASOURCE_PASSWORD: pgpass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: pgdb
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    depends_on:
+      - hw15-app
+
+  prometheus:
+      image: prom/prometheus:latest
+      container_name: prometheus
+      volumes:
+        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+      ports:
+        - "9090:9090"
+      depends_on:
+        - postgres
+
+  grafana:
+      image: grafana/grafana:latest
+      container_name: grafana
+      ports:
+        - "3000:3000"
+      volumes:
+        - grafana_data:/var/lib/grafana
+        - ./grafana/provisioning:/etc/grafana/provisioning
+        - ./grafana/dashboards:/etc/grafana/dashboards
+      environment:
+        - GF_SECURITY_ADMIN_USER=admin
+        - GF_SECURITY_ADMIN_PASSWORD=pass
+      depends_on:
+        - prometheus
+
+volumes:
+  pg_data:
+  grafana_data:

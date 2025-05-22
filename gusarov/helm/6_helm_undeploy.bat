@@ -1,0 +1,1 @@
+call helm uninstall t14-deployment

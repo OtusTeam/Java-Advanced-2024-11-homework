@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package ecommerce;
+
+option java_multiple_files = true;
+option java_package = "ru.otus.grpc";
+option java_outer_classname = "UserProto";
+
+message User {
+  int64 id = 1;
+  string email = 2;
+  string username = 3;
+}
+
+message UserID {
+  int64 value = 1;
+}
+
+message CreateUserRequest {
+  string email = 1;
+  string username = 2;
+}
+
+message ChangeEmailRequest {
+  int64 id = 1;
+  string email = 2;
+}
+
+message ChangeUsernameRequest {
+  int64 id = 1;
+  string username = 2;
+}

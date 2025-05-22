@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "description": "User object schema",
+  "type": "object",
+  "required": [
+    "login",
+    "password"
+  ],
+  "properties": {
+    "login": {
+      "description": "Логин",
+      "type": "string",
+      "maxLength": 100
+    },
+    "password": {
+      "description": "Пароль",
+      "type": "string",
+      "maxLength": 100
+    }
+  }
+}

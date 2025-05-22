@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package prod;
+
+message User {
+  string email = 1;
+  string username = 2;
+  int64 id = 3;
+}
+
+message Product {
+  string name = 1;
+  int64 id = 2;
+}
+
+message CreateUserReq {
+  string email = 1;
+  string username = 2;
+}
+
+message CreateUserResp {
+  int64 id = 1;
+}
+
+message ChangeUserEmailReq {
+  int64 id = 1;
+  string email = 2;
+}
+
+message ChangeUserNameReq {
+  int64 id = 1;
+  string username = 2;
+}
+
+message CreateProductReq {
+  string name = 1;
+}
+
+message CreateProductResp {
+  int64 id = 1;
+}
+
+message AddProductToCartReq {
+  int64 userId = 1;
+  int64 productId = 2;
+}
+
+message VoidResp {}
+
+service CardService {
+  rpc CreateUser(CreateUserReq) returns (CreateUserResp);
+  rpc ChangeUserEmail(ChangeUserEmailReq) returns (VoidResp);
+  rpc ChangeUserName(ChangeUserNameReq) returns (VoidResp);
+  rpc CreateProduct(CreateProductReq) returns (CreateProductResp);
+  rpc AddProductToCart(AddProductToCartReq) returns (VoidResp);
+}

@@ -1,0 +1,1 @@
+call helm upgrade --install t14-deployment --values .\values.yaml .\deployment\helm
