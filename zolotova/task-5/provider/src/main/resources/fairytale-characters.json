@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Alice",
+    "group": "Human",
+    "alignment": "Good",
+    "originStory": "A tale of Alice in Wonderland.",
+    "specialAbilities": [
+      "Curiosity",
+      "Imagination"
+    ]
+  },
+  {
+    "name": "Peter Pan",
+    "group": "Human",
+    "alignment": "Evil",
+    "originStory": "A tale of Peter Pan in Neverland.",
+    "specialAbilities": [
+      "Flight",
+      "Mischief"
+    ]
+  },
+  {
+    "name": "Captain Hook",
+    "group": "Human",
+    "alignment": "Evil",
+    "originStory": "A tale of Captain Hook, the pirate.",
+    "specialAbilities": [
+      "Hook Mastery",
+      "Swordsmanship"
+    ]
+  },
+  {
+    "name": "Tinker Bell",
+    "group": "Creature",
+    "alignment": "Evil",
+    "originStory": "A tale of Tinker Bell, the fairy.",
+    "specialAbilities": [
+      "Flight",
+      "Healing"
+    ]
+  },
+  {
+    "name": "The Little Mermaid",
+    "group": "Creature",
+    "alignment": "Evil",
+    "originStory": "A tale of the Little Mermaid under the sea.",
+    "specialAbilities": [
+      "Singing",
+      "Swimming"
+    ]
+  },
+  {
+    "name": "Aladdin",
+    "group": "Human",
+    "alignment": "Good",
+    "originStory": "A tale of Aladdin and the magic lamp.",
+    "specialAbilities": [
+      "Agility",
+      "Luck"
+    ]
+  },
+  {
+    "name": "Jasmine",
+    "group": "Human",
+    "alignment": "Good",
+    "originStory": "A tale of Princess Jasmine in Agrabah.",
+    "specialAbilities": [
+      "Diplomacy",
+      "Courage"
+    ]
+  },
+  {
+    "name": "Belle",
+    "group": "Human",
+    "alignment": "Good",
+    "originStory": "A tale of Belle and the Beast.",
+    "specialAbilities": [
+      "Kindness",
+      "Bravery"
+    ]
+  },
+  {
+    "name": "Beast",
+    "group": "Animal",
+    "alignment": "Evil",
+    "originStory": "A tale of the Beast in the enchanted castle.",
+    "specialAbilities": [
+      "Transformation",
+      "Magic"
+    ]
+  },
+  {
+    "name": "Mulan",
+    "group": "Human",
+    "alignment": "Good",
+    "originStory": "A tale of Mulan, the brave warrior.",
+    "specialAbilities": [
+      "Combat Skills",
+      "Strategy"
+    ]
+  }
+]

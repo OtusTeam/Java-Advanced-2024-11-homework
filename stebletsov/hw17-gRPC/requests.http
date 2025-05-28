@@ -1,0 +1,38 @@
+### Create User
+GRPC localhost:9090/ecommerce.UserProductService/createUser
+
+{
+  "email": "john@example.com",
+  "username": "john_doe"
+}
+
+### Change Email
+GRPC localhost:9090/ecommerce.UserProductService/changeUserEmail
+
+{
+  "id": "1",
+  "email": "new.email@example.com"
+}
+
+### Change Name
+GRPC localhost:9090/ecommerce.UserProductService/changeUserName
+
+{
+  "id": "1",
+  "username": "john_the_second"
+}
+
+### Create Product
+GRPC localhost:9090/ecommerce.UserProductService/createProduct
+
+{
+  "name": "Dummy product"
+}
+
+### Add Product to Cart
+GRPC localhost:9090/ecommerce.UserProductService/addProductToCart
+
+{
+  "userId": "1",
+  "productId": "1"
+}

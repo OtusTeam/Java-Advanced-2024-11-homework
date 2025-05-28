@@ -10,6 +10,19 @@
     <modules>
         <module>hw01-references-in-caches</module>
         <module>hw02-serial-gc</module>
+        <module>hw03-memory-dump</module>
+        <module>hw05-modules</module>
+        <module>hw06-jdk-tools</module>
+        <module>hw07-benchmark</module>
+        <module>hw08-jmeter</module>
+        <module>hw09-jfr</module>
+        <module>hw10-profiling</module>
+        <module>hw11-nio</module>
+        <module>hw12-reactive</module>
+        <module>hw13-docker</module>
+        <module>hw14-helm</module>
+        <module>hw15-grafana</module>
+        <module>hw16-open-api</module>
     </modules>
 
     <packaging>pom</packaging>

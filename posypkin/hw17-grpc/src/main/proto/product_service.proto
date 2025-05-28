@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package shop;
+
+message User {
+  string email = 1;
+  string username = 2;
+  int64 id = 3;
+}
+
+message Product {
+  string name = 1;
+  int64 id = 2;
+}
+
+message CreateUserRequest {
+  string email = 1;
+  string username = 2;
+}
+
+message CreateUserResponse {
+  int64 id = 1;
+}
+
+message ChangeUserEmailRequest {
+  int64 id = 1;
+  string email = 2;
+}
+
+message ChangeUserNameRequest {
+  int64 id = 1;
+  string username = 2;
+}
+
+message CreateProductRequest {
+  string name = 1;
+}
+
+message CreateProductResponse {
+  int64 id = 1;
+}
+
+message AddProductToCartRequest {
+  int64 userId = 1;
+  int64 productId = 2;
+}
+
+message Empty {}
+
+service ShopService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc ChangeUserEmail(ChangeUserEmailRequest) returns (Empty);
+  rpc ChangeUserName(ChangeUserNameRequest) returns (Empty);
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+  rpc AddProductToCart(AddProductToCartRequest) returns (Empty);
+}
