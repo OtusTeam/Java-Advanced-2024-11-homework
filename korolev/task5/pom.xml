@@ -4,24 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.janeforjane</groupId>
-    <artifactId>zolotova</artifactId>
+    <groupId>dev.korolz</groupId>
+    <artifactId>task5</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-<!--        cache-soft-weak-references-->
-        <module>task-1</module>
-<!--        memory-dump-->
-        <module>task-3</module>
-        <module>task-5</module>
-        <module>task-6</module>
-        <module>task-7</module>
-        <module>task-8</module>
-        <module>task-9</module>
-        <module>task-10</module>
-
-    </modules>
-
     <packaging>pom</packaging>
+    <modules>
+        <module>api</module>
+        <module>service</module>
+        <module>provider</module>
+        <module>core</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

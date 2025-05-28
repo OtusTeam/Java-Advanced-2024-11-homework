@@ -3,25 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>edu.janeforjane</groupId>
+        <artifactId>zolotova</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>edu.janeforjane</groupId>
-    <artifactId>zolotova</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-<!--        cache-soft-weak-references-->
-        <module>task-1</module>
-<!--        memory-dump-->
-        <module>task-3</module>
-        <module>task-5</module>
-        <module>task-6</module>
-        <module>task-7</module>
-        <module>task-8</module>
-        <module>task-9</module>
-        <module>task-10</module>
-
-    </modules>
-
-    <packaging>pom</packaging>
+    <artifactId>task-6</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
