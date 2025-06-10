@@ -3,26 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>dev.sivakova</groupId>
-    <artifactId>sivakova-homework</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.8</version>
-        <relativePath/>
+        <groupId>dev.sivakova</groupId>
+        <artifactId>task7</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <modules>
-        <module>task1</module>
-        <module>task2</module>
-        <module>task3</module>
-        <module>task7</module>
-        <module>task11</module>
-        <module>task12</module>
-    </modules>
 
-    <packaging>pom</packaging>
+    <artifactId>common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
