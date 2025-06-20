@@ -122,6 +122,8 @@ public class AuthServiceTestPlan {
             summariser = new Summariser(summariserName);
         }
         ResultCollector logger = new ResultCollector(summariser);
+        logger.setProperty(TestElement.TEST_CLASS, ResultCollector.class.getName());
+        logger.setProperty(TestElement.GUI_CLASS, org.apache.jmeter.visualizers.SummaryReport.class.getName());
         logger.setFilename("logs.jtl");
         threadGroupHashTree.add(logger);
 

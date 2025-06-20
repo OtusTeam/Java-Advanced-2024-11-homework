@@ -10,9 +10,9 @@
 .
 ├── auth-service/ # REST API для регистрации пользователей
 ├── jmeter-test/ # Java-программа, создающая и запускающая нагрузочный тест в JMeter
+    ├── auth_service_generated_test_plan.jmx/ # Тестовый план, сгенерированный во время запуска нагрузочного теста в `jmeter-test`
+    ├── logs.jtl/ # логи выполнения теста в `jmeter-test`
 ├── auth_service_test_plan.jmx/ # Тестовый план, созданные через UI-интерфейс JMeter'а
-├── auth_service_generated_test_plan.jmx/ # Тестовый план, сгенерированный во время запуска нагрузочного теста в `jmeter-test`
-├── logs.jtl/ # логи выполнения теста в `jmeter-test`
 └── README.md
 ```
 ## Сборка проекта
