@@ -24,6 +24,7 @@
         <module>hw15-grafana</module>
         <module>hw16-openAPI</module>
         <module>hw17-gRPC</module>
+        <module>hw18-resilience4j</module>
     </modules>
 
     <packaging>pom</packaging>

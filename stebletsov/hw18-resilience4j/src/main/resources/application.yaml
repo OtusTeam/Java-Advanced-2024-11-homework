@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: hw18-resilence4j
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+resilience4j:
+  ratelimiter:
+    instances:
+      RPSRateLimiter:
+        limitForPeriod: 20
+        limitRefreshPeriod: 1s
+        timeoutDuration: 0
+      RPMRateLimiter:
+        limitForPeriod: 30
+        limitRefreshPeriod: 60s
+        timeoutDuration: 0
+
+  circuitbreaker:
+    instances:
+      defaultCircuitBreaker:
+        slidingWindowSize: 10
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 30s
+        ignore-exceptions:
+          - ru.otus.exception.RateLimitExceededException
+
+logging:
+  level:
+    root: INFO
+    io.github.resilience4j: DEBUG
